@@ -1,6 +1,6 @@
 # Voice-Controlled Assistant (Jarvis)
 
-* A personal voice assistant built with Python, capable of performing various tasks through voice commands, including opening applications, browsing the web, providing information, managing notes, and interacting with Google's Gemini AI.
+### A personal voice assistant built with Python, capable of performing various tasks through voice commands, including opening applications, browsing the web, providing information, managing notes, and interacting with Google's Gemini AI.
 
 # ✨ Features
 
@@ -313,154 +313,154 @@ python voice_launcher_version_11.0.py
 
 #### "Clear all reminders"
 
-"Start listening" (Activates simulated hotword detection)
+#### "Start listening" (Activates simulated hotword detection)
 
-"Hey Jarvis" (To trigger a command while hotword detection is active)
+#### "Hey Jarvis" (To trigger a command while hotword detection is active)
 
-"Stop listening" (Deactivates simulated hotword detection)
+#### "Stop listening" (Deactivates simulated hotword detection)
 
-"Analyze text" (Prompts for text, then performs sentiment analysis)
+#### "Analyze text" (Prompts for text, then performs sentiment analysis)
 
-"What is the sentiment of this" (Prompts for text, then performs sentiment analysis)
+#### "What is the sentiment of this" (Prompts for text, then performs sentiment analysis)
 
-"Summarize document" (Prompts for text, then uses Gemini for summarization)
+#### "Summarize document" (Prompts for text, then uses Gemini for summarization)
 
-"Open interface" (Simulates launching a GUI)
+#### "Open interface" (Simulates launching a GUI)
 
-"Show interface" (Simulates launching a GUI)
+#### "Show interface" (Simulates launching a GUI)
 
-"Close interface" (Simulates closing a GUI)
+#### "Close interface" (Simulates closing a GUI)
 
-"Turn on lights" (Simulates turning on all Hue lights)
+#### "Turn on lights" (Simulates turning on all Hue lights)
 
-"Turn off lights" (Simulates turning off all Hue lights)
+#### "Turn off lights" (Simulates turning off all Hue lights)
 
-"Turn on all lights" (Simulates turning on all Hue lights)
+#### "Turn on all lights" (Simulates turning on all Hue lights)
 
-"Turn off all lights" (Simulates turning off all Hue lights)
+#### "Turn off all lights" (Simulates turning off all Hue lights)
 
-"Turn on the living room lamp" (Simulates turning on a specific Hue light)
+#### "Turn on the living room lamp" (Simulates turning on a specific Hue light)
 
-"Turn off the kitchen spotlight" (Simulates turning off a specific Hue light)
+#### "Turn off the kitchen spotlight" (Simulates turning off a specific Hue light)
 
-"Set living room lamp brightness to 50 percent" (Simulates setting brightness for a Hue light)
+#### "Set living room lamp brightness to 50 percent" (Simulates setting brightness for a Hue light)
 
-"Set bedroom light color to blue" (Simulates setting color for a Hue light)
+#### "Set bedroom light color to blue" (Simulates setting color for a Hue light)
 
-"What are the lights doing" (Simulates getting status of all Hue lights)
+#### "What are the lights doing" (Simulates getting status of all Hue lights)
 
-"What is the living room lamp doing" (Simulates getting status of a specific Hue light)
+#### "What is the living room lamp doing" (Simulates getting status of a specific Hue light)
 
-"Set thermostat to 22 degrees" (for Smart Home - conceptual)
+#### "Set thermostat to 22 degrees" (for Smart Home - conceptual)
 
-"Lock doors" (for Smart Home - conceptual)
+#### "Lock doors" (for Smart Home - conceptual)
 
-"Unlock doors" (for Smart Home - conceptual)
+#### "Unlock doors" (for Smart Home - conceptual)
 
-"Exit" / "Goodbye" / "Quit"
+#### "Exit" / "Goodbye" / "Quit"
 
 # ⚠️ Troubleshooting
 
-"Microphone Error" / "Could not understand audio":
+## "Microphone Error" / "Could not understand audio":
 
-Ensure your microphone is properly connected and configured as the default input device in your system settings.
+#### Ensure your microphone is properly connected and configured as the default input device in your system settings.
 
-Check microphone privacy settings on Windows.
+#### Check microphone privacy settings on Windows.
 
-Speak clearly and reduce background noise.
+#### Speak clearly and reduce background noise.
 
-Adjust r.energy_threshold in listen_command (increase if too sensitive, decrease if not picking up speech).
+#### Adjust r.energy_threshold in listen_command (increase if too sensitive, decrease if not picking up speech).
 
-"Could not request results from Google Speech Recognition service":
+## "Could not request results from Google Speech Recognition service":
 
-Verify your internet connection.
+#### Verify your internet connection.
 
-The Google Speech Recognition API (used by speech_recognition) might have temporary issues or rate limits.
+#### The Google Speech Recognition API (used by speech_recognition) might have temporary issues or rate limits.
 
-"API key not configured" / "Error configuring Gemini API":
+## "API key not configured" / "Error configuring Gemini API":
 
-Double-check that you've correctly entered your OPENWEATHERMAP_API_KEY and GEMINI_API_KEY in the GLOBAL_CONFIG section.
+#### Double-check that you've correctly entered your OPENWEATHERMAP_API_KEY and GEMINI_API_KEY in the GLOBAL_CONFIG section.
 
-Ensure the respective APIs are enabled in your Google Cloud project for Gemini.
+#### Ensure the respective APIs are enabled in your Google Cloud project for Gemini.
 
-"Application not found" / "Access denied":
+## "Application not found" / "Access denied":
 
-Ensure the application's executable name (e.g., chrome.exe) is correct and the application is installed.
+#### Ensure the application's executable name (e.g., chrome.exe) is correct and the application is installed.
 
-For some commands (like closing certain processes or system power actions), you might need to run the Python script as an administrator.
+#### For some commands (like closing certain processes or system power actions), you might need to run the Python script as an administrator.
 
-Volume control issues (Windows):
+## Volume control issues (Windows):
 
-If pycaw fails, ensure it's installed correctly (pip install pycaw comtypes).
+#### If pycaw fails, ensure it's installed correctly (pip install pycaw comtypes).
 
-A very basic fallback using nircmd (if installed and in PATH) is attempted, but pycaw is preferred.
+#### A very basic fallback using nircmd (if installed and in PATH) is attempted, but pycaw is preferred.
 
-Volume control issues (macOS/Linux):
+## Volume control issues (macOS/Linux):
 
-Ensure necessary system utilities are installed and in your PATH (osascript on macOS, pactl or amixer for PulseAudio/ALSA on Linux).
+#### Ensure necessary system utilities are installed and in your PATH (osascript on macOS, pactl or amixer for PulseAudio/ALSA on Linux).
 
-Relative volume changes (increase/decrease by X%) now include conceptual logic to get current volume, but real-world reliability depends on system setup.
+#### Relative volume changes (increase/decrease by X%) now include conceptual logic to get current volume, but real-world reliability depends on system setup.
 
-Spotify commands not working:
+## Spotify commands not working:
 
-You must configure your Spotify API credentials in GLOBAL_CONFIG and uncomment the authenticate_spotify() call in main.
+#### You must configure your Spotify API credentials in GLOBAL_CONFIG and uncomment the authenticate_spotify() call in main.
 
-Ensure you have installed spotipy (pip install spotipy).
+#### Ensure you have installed spotipy (pip install spotipy).
 
-Spotify needs an active device (e.g., the Spotify desktop app open and playing music, or a Spotify Connect device selected) for the commands to work.
+#### Spotify needs an active device (e.g., the Spotify desktop app open and playing music, or a Spotify Connect device selected) for the commands to work.
 
-Local music playback not working:
+## Local music playback not working:
 
-Ensure playsound is installed (pip install playsound).
+#### Ensure playsound is installed (pip install playsound).
 
-Verify that LOCAL_MUSIC_DIRECTORY in GLOBAL_CONFIG points to a valid directory containing .mp3, .wav, or .ogg files.
+#### Verify that LOCAL_MUSIC_DIRECTORY in GLOBAL_CONFIG points to a valid directory containing .mp3, .wav, or .ogg files.
 
-playsound can sometimes have issues with specific audio formats or system configurations. Note that playsound does not offer robust stop/pause functionality; for that, a different audio library would be needed.
+#### playsound can sometimes have issues with specific audio formats or system configurations. Note that playsound does not offer robust stop/pause functionality; for that, a different audio library would be needed.
 
-Calendar/Reminder date/time parsing issues:
+## Calendar/Reminder date/time parsing issues:
 
-The built-in parser is basic. For more flexible natural language date/time input, consider installing dateparser (pip install dateparser) and modifying _parse_datetime_from_speech to use it.
+#### The built-in parser is basic. For more flexible natural language date/time input, consider installing dateparser (pip install dateparser) and modifying _parse_datetime_from_speech to use it.
 
-NLP Sentiment Analysis not working:
+## NLP Sentiment Analysis not working:
 
-Ensure nltk is installed (pip install nltk).
+#### Ensure nltk is installed (pip install nltk).
 
-Make sure you have downloaded the vader_lexicon by running import nltk; nltk.download('vader_lexicon') in your Python environment.
+#### Make sure you have downloaded the vader_lexicon by running import nltk; nltk.download('vader_lexicon') in your Python environment.
 
-Smart Home (Philips Hue) commands not working (beyond simulation):
+## Smart Home (Philips Hue) commands not working (beyond simulation):
 
-This is expected in this environment. To make it real, you need a physical Philips Hue Bridge, configure its IP and username in GLOBAL_CONFIG, and replace the _hue_send_command simulation with actual requests calls to your bridge. Refer to the "Smart Home Integration (Simulated Philips Hue)" section in Features and the "Future Enhancements" section.
+#### This is expected in this environment. To make it real, you need a physical Philips Hue Bridge, configure its IP and username in GLOBAL_CONFIG, and replace the _hue_send_command simulation with actual requests calls to your bridge. Refer to the "Smart Home Integration (Simulated Philips Hue)" section in Features and the "Future Enhancements" section.
 
 # 💡 Future Enhancements (Roadmap for Further Development)
 
-Continuous Listening / Hotword Detection (Full Implementation):
+## Continuous Listening / Hotword Detection (Full Implementation):
 
-Concept: True always-on, low-latency listening for a specific "wake word" (e.g., "Hey Jarvis") without needing you to press a key or manually trigger listening, and with minimal resource consumption.
+#### Concept: True always-on, low-latency listening for a specific "wake word" (e.g., "Hey Jarvis") without needing you to press a key or manually trigger listening, and with minimal resource consumption.
 
-Implementation: Requires specialized libraries like Porcupine (more accurate, but often requires a free account for custom hotwords) or PocketSphinx (offline, less accurate, but no external accounts). This typically involves running a dedicated audio processing thread or process in the background that continuously monitors the microphone for the hotword. Upon detection, it would signal the main application to start full speech recognition.
+#### Implementation: Requires specialized libraries like Porcupine (more accurate, but often requires a free account for custom hotwords) or PocketSphinx (offline, less accurate, but no external accounts). This typically involves running a dedicated audio processing thread or process in the background that continuously monitors the microphone for the hotword. Upon detection, it would signal the main application to start full speech recognition.
 
-Challenge: Resource intensive if not implemented efficiently, complex to set up due to audio stream management, and requires careful handling of multi-threading/multi-processing for responsiveness.
+#### Challenge: Resource intensive if not implemented efficiently, complex to set up due to audio stream management, and requires careful handling of multi-threading/multi-processing for responsiveness.
 
-Advanced Natural Language Processing (NLP) (Deeper Analysis):
+## Advanced Natural Language Processing (NLP) (Deeper Analysis):
 
-Concept: Moving beyond basic sentiment analysis to truly understand the meaning and intent of more complex or nuanced commands, including tasks like named entity recognition (NER), topic modeling, or more sophisticated text summarization (beyond what Gemini can provide as a general LLM).
+#### Concept: Moving beyond basic sentiment analysis to truly understand the meaning and intent of more complex or nuanced commands, including tasks like named entity recognition (NER), topic modeling, or more sophisticated text summarization (beyond what Gemini can provide as a general LLM).
 
-Implementation: Involves deeper integration with libraries like spaCy (for NER, dependency parsing, etc.) or exploring more advanced summarization algorithms. For complex intent recognition, integrating with cloud-based conversational AI services like Google's Dialogflow would be a next step.
+#### Implementation: Involves deeper integration with libraries like spaCy (for NER, dependency parsing, etc.) or exploring more advanced summarization algorithms. For complex intent recognition, integrating with cloud-based conversational AI services like Google's Dialogflow would be a next step.
 
-Challenge: Requires deeper understanding of NLP concepts and potentially more complex model training or API integrations.
+#### Challenge: Requires deeper understanding of NLP concepts and potentially more complex model training or API integrations.
 
-Graphical User Interface (GUI) (Full Implementation):
+## Graphical User Interface (GUI) (Full Implementation):
 
-Concept: Transforming Jarvis from a command-line application into a visual desktop application with buttons, text displays, and other interactive elements.
+#### Concept: Transforming Jarvis from a command-line application into a visual desktop application with buttons, text displays, and other interactive elements.
 
-Implementation: Requires choosing a Python GUI framework such as Tkinter (built-in, simpler), PyQt / PySide (more powerful, feature-rich, cross-platform), or Kivy (designed for multi-touch applications). This involves a complete redesign of the user interaction flow from text-based to event-driven. This would likely involve running the voice recognition and command processing in a separate thread to keep the GUI responsive.
+#### Implementation: Requires choosing a Python GUI framework such as Tkinter (built-in, simpler), PyQt / PySide (more powerful, feature-rich, cross-platform), or Kivy (designed for multi-touch applications). This involves a complete redesign of the user interaction flow from text-based to event-driven. This would likely involve running the voice recognition and command processing in a separate thread to keep the GUI responsive.
 
-Challenge: A complete rewrite of the user interaction part of the application, managing GUI event loops, and proper threading for background tasks.
+#### Challenge: A complete rewrite of the user interaction part of the application, managing GUI event loops, and proper threading for background tasks.
 
-Smart Home Integration (Other Devices - Full Implementation):
+## Smart Home Integration (Other Devices - Full Implementation):
 
-Concept: Control other smart home devices (thermostats, smart locks, etc.) through voice commands, beyond just Philips Hue lights.
+#### Concept: Control other smart home devices (thermostats, smart locks, etc.) through voice commands, beyond just Philips Hue lights.
 
-Implementation: Similar to Philips Hue, this would require integrating with the specific APIs of those devices or their central smart home hubs (e.g., Google Home API, Home Assistant API, specific smart lock APIs). Each integration would involve its own authentication, device discovery, and command structure.
+#### Implementation: Similar to Philips Hue, this would require integrating with the specific APIs of those devices or their central smart home hubs (e.g., Google Home API, Home Assistant API, specific smart lock APIs). Each integration would involve its own authentication, device discovery, and command structure.
 
-Challenge: Requires specific API knowledge for each device/platform, handling authentication securely, and robust error handling for device communication.
+#### Challenge: Requires specific API knowledge for each device/platform, handling authentication securely, and robust error handling for device communication.
