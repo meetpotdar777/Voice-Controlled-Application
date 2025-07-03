@@ -1,166 +1,161 @@
-Voice-Controlled Assistant (Jarvis)
+# Voice-Controlled Assistant (Jarvis)
 
-A personal voice assistant built with Python, capable of performing various tasks through voice commands, including opening applications, browsing the web, providing information, managing notes, and interacting with Google's Gemini AI.
+* A personal voice assistant built with Python, capable of performing various tasks through voice commands, including opening applications, browsing the web, providing information, managing notes, and interacting with Google's Gemini AI.
 
-✨ Features
+# ✨ Features
 
-Core Assistant Commands:
+## Core Assistant Commands:
 
-Voice Control: Interact using natural language.
+* Voice Control: Interact using natural language.
 
-Application & URL Launching: Open websites (Google, YouTube, GitHub, LinkedIn) and launch desktop applications (Chrome, Firefox, Notepad, Calculator, etc.).
+* Application & URL Launching: Open websites (Google, YouTube, GitHub, LinkedIn) and launch desktop applications (Chrome, Firefox, Notepad, Calculator, etc.).
 
-Application & Window Closing: Close specific applications or the active window (Windows only).
+* Application & Window Closing: Close specific applications or the active window (Windows only).
 
-Information Queries: Get current time, date, day, and weather information for a specified city.
+* Information Queries: Get current time, date, day, and weather information for a specified city.
 
-Dynamic Web Search: Perform searches directly on Google, YouTube, and GitHub.
+* Dynamic Web Search: Perform searches directly on Google, YouTube, and GitHub.
 
-AI Integration (Gemini): Ask general questions and receive intelligent responses powered by Google's Gemini AI.
+* AI Integration (Gemini): Ask general questions and receive intelligent responses powered by Google's Gemini AI.
 
-Personalized Memory: Store, retrieve, categorize, summarize, and delete notes/memories in a JSON file.
+* Personalized Memory: Store, retrieve, categorize, summarize, and delete notes/memories in a JSON file.
 
-Robust Command Recognition: Utilizes fuzzy matching to understand commands even with slight variations.
+* Robust Command Recognition: Utilizes fuzzy matching to understand commands even with slight variations.
 
-Enhanced Error Handling: Provides more specific feedback for common issues.
+* Enhanced Error Handling: Provides more specific feedback for common issues.
 
-Help Command: Ask Jarvis for "help" or "what can you do" to get an overview of its capabilities, categorized for clarity.
+* Help Command: Ask Jarvis for "help" or "what can you do" to get an overview of its capabilities, categorized for clarity.
 
-Command Cancellation: Say "cancel" or "never mind" during multi-step commands to abort the process.
+* Command Cancellation: Say "cancel" or "never mind" during multi-step commands to abort the process.
 
-Enhanced Features (Functional with specific requirements):
+## Enhanced Features (Functional with specific requirements):
 
-System Volume Control: Adjust, mute, and unmute system volume.
+* System Volume Control: Adjust, mute, and unmute system volume.
 
-Windows: Fully functional using pycaw.
+* Windows: Fully functional using pycaw.
 
-macOS/Linux: Functional for setting specific volume levels, muting, and unmuting using system commands (osascript on macOS, pactl on Linux). Relative volume changes (increase/decrease by X%) now include conceptual logic for getting current volume, which can vary by system setup.
+* macOS/Linux: Functional for setting specific volume levels, muting, and unmuting using system commands (osascript on macOS, pactl on Linux). Relative volume changes (increase/decrease by X%) now include conceptual logic for getting current volume, which can vary by system setup.
 
-System Power Control: Safely shutdown, restart, or put your computer to sleep with verbal confirmation.
+* System Power Control: Safely shutdown, restart, or put your computer to sleep with verbal confirmation.
 
-Open System Settings: Quickly open your operating system's settings or preferences.
+* Open System Settings: Quickly open your operating system's settings or preferences.
 
-System Information Queries: Get current CPU usage, RAM usage, and disk space information.
+* System Information Queries: Get current CPU usage, RAM usage, and disk space information.
 
-Spotify Playback Control: Play, pause, skip next/previous song. Requires Spotify API setup and the spotipy library.
+* Spotify Playback Control: Play, pause, skip next/previous song. Requires Spotify API setup and the spotipy library.
 
-General Music Playback (Basic Local Files): Can play the first .mp3, .wav, or .ogg file found in a configured local music directory, and attempt to play a specific song by name. Requires playsound library. (Note: Direct stopping of playsound is limited; for robust control, a different audio library would be needed).
+* General Music Playback (Basic Local Files): Can play the first .mp3, .wav, or .ogg file found in a configured local music directory, and attempt to play a specific song by name. Requires playsound library. (Note: Direct stopping of playsound is limited; for robust control, a different audio library would be needed).
 
-Calendar/Reminder Integration (Functional with Local JSON Storage):
+* Calendar/Reminder Integration (Functional with Local JSON Storage):
 
-Add Reminders/Events: Add notes for specific dates and times (e.g., "add reminder for meeting tomorrow at 3 PM").
+* Add Reminders/Events: Add notes for specific dates and times (e.g., "add reminder for meeting tomorrow at 3 PM").
 
-Set Timers: Set countdown timers (e.g., "set a timer for 5 minutes").
+* Set Timers: Set countdown timers (e.g., "set a timer for 5 minutes").
 
-Set Alarms: Set alarms for specific times (e.g., "set an alarm for 7 AM").
+* Set Alarms: Set alarms for specific times (e.g., "set an alarm for 7 AM").
 
-View Upcoming: List all upcoming reminders and events.
+* View Upcoming: List all upcoming reminders and events.
 
-View for Specific Day: Ask to "show reminders for tomorrow" or "show reminders for next Monday".
+* View for Specific Day: Ask to "show reminders for tomorrow" or "show reminders for next Monday".
 
-Show Timers/Alarms: List active timers and alarms.
+* Show Timers/Alarms: List active timers and alarms.
 
-Mark Complete: Mark a reminder or event as completed by its ID.
+* Mark Complete: Mark a reminder or event as completed by its ID.
 
-Delete/Cancel: Delete specific reminders/events by ID, or cancel active timers/alarms.
+* Delete/Cancel: Delete specific reminders/events by ID, or cancel active timers/alarms.
 
-Clear All: Clear all reminders and events.
+* Clear All: Clear all reminders and events.
+#### Note: This uses local JSON storage for demonstration. Full integration with services like Google Calendar requires additional API setup and authentication. Basic date/time parsing is implemented, but for complex phrases, dateparser is recommended.
 
-Note: This uses local JSON storage for demonstration. Full integration with services like Google Calendar requires additional API setup and authentication. Basic date/time parsing is implemented, but for complex phrases, dateparser is recommended.
+### Continuous Listening / Hotword Detection (Simulated):
 
-Continuous Listening / Hotword Detection (Simulated):
+* Activate/Deactivate: Use "start listening" or "enable hotword" to turn on a simulated hotword mode. Use "stop listening" or "disable hotword" to turn it off.
 
-Activate/Deactivate: Use "start listening" or "enable hotword" to turn on a simulated hotword mode. Use "stop listening" or "disable hotword" to turn it off.
+* Hotword Trigger: When enabled, Jarvis will wait for you to say "Hey Jarvis". Once detected, it will then listen for your actual command. After the command, it returns to waiting for the hotword.
+#### Note: This is a simulated hotword. True always-on, low-latency hotword detection requires specialized libraries (like Porcupine or PocketSphinx) and often multi-threading, which are beyond simple script integration due to their complex setup and resource usage.
 
-Hotword Trigger: When enabled, Jarvis will wait for you to say "Hey Jarvis". Once detected, it will then listen for your actual command. After the command, it returns to waiting for the hotword.
+### Advanced Natural Language Processing (NLP) (Basic Sentiment Analysis):
 
-Note: This is a simulated hotword. True always-on, low-latency hotword detection requires specialized libraries (like Porcupine or PocketSphinx) and often multi-threading, which are beyond simple script integration due to their complex setup and resource usage.
+* Sentiment Analysis: Use commands like "analyze text" or "what is the sentiment of this" to get a positive, negative, or neutral sentiment analysis of a phrase you speak.
+#### Note: This uses nltk's VADER lexicon. For more complex NLP tasks (like entity extraction, deeper text summarization beyond Gemini's capabilities, or intent recognition), further integration with spaCy or cloud NLP services would be required.
 
-Advanced Natural Language Processing (NLP) (Basic Sentiment Analysis):
+### Graphical User Interface (GUI) (Simulated):
 
-Sentiment Analysis: Use commands like "analyze text" or "what is the sentiment of this" to get a positive, negative, or neutral sentiment analysis of a phrase you speak.
+* Launch/Close Interface: Use "open interface" or "show interface" to simulate launching a GUI, and "close interface" to simulate closing it.
+#### Note: A visual GUI cannot be rendered directly in this text-based environment. These commands provide verbal and console feedback, indicating where a real GUI would appear and how it would interact. Full GUI implementation requires a dedicated framework like Tkinter, PyQt, or Kivy.
 
-Note: This uses nltk's VADER lexicon. For more complex NLP tasks (like entity extraction, deeper text summarization beyond Gemini's capabilities, or intent recognition), further integration with spaCy or cloud NLP services would be required.
+### Smart Home Integration (Simulated Philips Hue):
 
-Graphical User Interface (GUI) (Simulated):
+* Conceptual API Interaction: Includes functions (_hue_send_command, _hue_get_light_status, _hue_set_light) that mimic API calls to a Philips Hue Bridge.
 
-Launch/Close Interface: Use "open interface" or "show interface" to simulate launching a GUI, and "close interface" to simulate closing it.
+* Commands: "turn on lights", "turn off lights", "turn on all lights", "turn off all lights", "set light brightness to [X] percent", "set [light name] brightness to [X]", "set [light name] color to [color]", "what are the lights doing", "turn on the [light name]", "turn off the [light name]", "get light status [light name]".
 
-Note: A visual GUI cannot be rendered directly in this text-based environment. These commands provide verbal and console feedback, indicating where a real GUI would appear and how it would interact. Full GUI implementation requires a dedicated framework like Tkinter, PyQt, or Kivy.
+* Simulated Devices: The code includes a SIMULATED_HUE_LIGHTS dictionary to demonstrate state changes.
+#### Note: This is a simulated integration. To make it control real Philips Hue lights, you would need:
 
-Smart Home Integration (Simulated Philips Hue):
+* A Philips Hue Bridge: Connected to your local network.
 
-Conceptual API Interaction: Includes functions (_hue_send_command, _hue_get_light_status, _hue_set_light) that mimic API calls to a Philips Hue Bridge.
+* Discover Bridge IP: You'd need to find your bridge's IP address (e.g., using a network scanner or the Hue app).
 
-Commands: "turn on lights", "turn off lights", "turn on all lights", "turn off all lights", "set light brightness to [X] percent", "set [light name] brightness to [X]", "set [light name] color to [color]", "what are the lights doing", "turn on the [light name]", "turn off the [light name]", "get light status [light name]".
+* Generate a Username: Press the physical button on your Hue Bridge and then make a specific API call (e.g., POST http://<bridge_ip>/api with {"devicetype":"my_app#jarvis"}). This generates the HUE_USERNAME.
 
-Simulated Devices: The code includes a SIMULATED_HUE_LIGHTS dictionary to demonstrate state changes.
+* Update GLOBAL_CONFIG: Replace "YOUR_HUE_BRIDGE_IP" and "your_hue_username" with your actual values.
 
-Note: This is a simulated integration. To make it control real Philips Hue lights, you would need:
+* Network Access: Ensure your computer running Jarvis can reach the Hue Bridge on your local network.
 
-A Philips Hue Bridge: Connected to your local network.
+* Real API Calls: Replace the _hue_send_command simulation with actual requests.get() and requests.put() calls to the Hue Bridge API.
 
-Discover Bridge IP: You'd need to find your bridge's IP address (e.g., using a network scanner or the Hue app).
+#### The following advanced features are currently implemented as conceptual frameworks in the code. They include command recognition and verbal acknowledgments of what they would do, along with detailed comments outlining the significant additional development, external library installations, and API configurations required for full functionality.
 
-Generate a Username: Press the physical button on your Hue Bridge and then make a specific API call (e.g., POST http://<bridge_ip>/api with {"devicetype":"my_app#jarvis"}). This generates the HUE_USERNAME.
+#### Smart Home Integration (Other Devices - Conceptual): Commands like "set thermostat to", "lock doors", "unlock doors". These are still conceptual as they would require integration with other specific smart home platform APIs (e.g., Google Home, Home Assistant, smart locks, smart thermostats) beyond Philips Hue.
 
-Update GLOBAL_CONFIG: Replace "YOUR_HUE_BRIDGE_IP" and "your_hue_username" with your actual values.
+# 🚀 Requirements
 
-Network Access: Ensure your computer running Jarvis can reach the Hue Bridge on your local network.
+* Python 3.7+
 
-Real API Calls: Replace the _hue_send_command simulation with actual requests.get() and requests.put() calls to the Hue Bridge API.
+* Operating System: Primarily tested on Windows. Cross-platform compatibility for core functions is handled.
 
-The following advanced features are currently implemented as conceptual frameworks in the code. They include command recognition and verbal acknowledgments of what they would do, along with detailed comments outlining the significant additional development, external library installations, and API configurations required for full functionality.
-
-Smart Home Integration (Other Devices - Conceptual): Commands like "set thermostat to", "lock doors", "unlock doors". These are still conceptual as they would require integration with other specific smart home platform APIs (e.g., Google Home, Home Assistant, smart locks, smart thermostats) beyond Philips Hue.
-
-🚀 Requirements
-
-Python 3.7+
-
-Operating System: Primarily tested on Windows. Cross-platform compatibility for core functions is handled.
-
-🛠️ Installation
-Clone the repository (or download the script):
-
+# 🛠️ Installation
+####  Clone the repository (or download the script):
+```
 git clone https://github.com/your-username/voice-controlled-assistant.git
 cd voice-controlled-assistant
+```
+#### (Replace your-username with your actual GitHub username if you create a repo, otherwise just download the .py file).
 
-(Replace your-username with your actual GitHub username if you create a repo, otherwise just download the .py file).
-
-Create a virtual environment (recommended):
-
+#### Create a virtual environment (recommended):
+```
 python -m venv venv
+```
+#### Activate the virtual environment:
 
-Activate the virtual environment:
-
-Windows:
-
+#### Windows:
+```
 .\venv\Scripts\activate
-
-macOS/Linux:
-
+```
+#### macOS/Linux:
+```
 source venv/bin/activate
-
-Install the required Python packages:
-
+```
+#### Install the required Python packages:
+```
 pip install -r requirements.txt
+```
+#### Note for pyaudio: If pip install pyaudio fails on Windows, you might need to download a pre-compiled wheel file from Unofficial Windows Binaries for Python Extensions and install it manually:
 
-Note for pyaudio: If pip install pyaudio fails on Windows, you might need to download a pre-compiled wheel file from Unofficial Windows Binaries for Python Extensions and install it manually:
-
-# Example for Python 3.9 on 64-bit Windows:
-
+#### Example for Python 3.9 on 64-bit Windows:
+```
 pip install C:\path\to\PyAudio‑0.2.11‑cp39‑cp39‑win_amd64.whl
-
-Note for nltk data: After installing nltk, you might need to download the vader_lexicon for sentiment analysis. Run the following command in your Python environment once:
-
+```
+#### Note for nltk data: After installing nltk, you might need to download the vader_lexicon for sentiment analysis. Run the following command in your Python environment once:
+```
 import nltk
 nltk.download('vader_lexicon')
+```
+# ⚙️ Configuration
 
-⚙️ Configuration
-
-Open the voice_launcher_version_11.0.py file (or whatever you named your main script) in a text editor and customize the GLOBAL_CONFIG dictionary:
-
+#### Open the voice_launcher_version_11.0.py file (or whatever you named your main script) in a text editor and customize the GLOBAL_CONFIG dictionary:
+```
 GLOBAL_CONFIG = {
     "CITY_NAME": "Australia",  # Your city name for weather queries
     "OPENWEATHERMAP_API_KEY": "YOUR_OPENWEATHERMAP_API_KEY", # Get your API key from openweathermap.org
@@ -184,139 +179,139 @@ GLOBAL_CONFIG = {
     # Philips Hue Smart Home Integration (Simulated)
     # For a REAL implementation, you would need to find your Hue Bridge IP and generate a username.
     # See README.md for instructions.
-    "HUE_BRIDGE_IP": "192.168.1.100", # Replace with your actual Hue Bridge IP address
+    "HUE_BRIDGE_IP": "145.155.1.300", # Replace with your actual Hue Bridge IP address
     "HUE_USERNAME": "your_hue_username" # Replace with your generated Hue username
 }
+```
+#### OPENWEATHERMAP_API_KEY: Obtain a free API key from OpenWeatherMap.
 
-OPENWEATHERMAP_API_KEY: Obtain a free API key from OpenWeatherMap.
+#### GEMINI_API_KEY: Obtain an API key for the Generative Language API from the Google Cloud Console. Enable the "Generative Language API" for your project.
 
-GEMINI_API_KEY: Obtain an API key for the Generative Language API from the Google Cloud Console. Enable the "Generative Language API" for your project.
+#### CITY_NAME: Set this to your local city for accurate weather reports.
 
-CITY_NAME: Set this to your local city for accurate weather reports.
+#### Spotify API Keys: To enable Spotify control, you must create a developer account and an application on the Spotify Developer Dashboard. Fill in SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REDIRECT_URI in the GLOBAL_CONFIG. You will also need to uncomment the authenticate_spotify() call in the main function (around line 600 in the provided code) if you want it to try authenticating on startup.
 
-Spotify API Keys: To enable Spotify control, you must create a developer account and an application on the Spotify Developer Dashboard. Fill in SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, and SPOTIFY_REDIRECT_URI in the GLOBAL_CONFIG. You will also need to uncomment the authenticate_spotify() call in the main function (around line 600 in the provided code) if you want it to try authenticating on startup.
+#### LOCAL_MUSIC_DIRECTORY: Set this to the path where your local music files (.mp3, .wav, .ogg) are stored.
 
-LOCAL_MUSIC_DIRECTORY: Set this to the path where your local music files (.mp3, .wav, .ogg) are stored.
+#### Philips Hue Integration (HUE_BRIDGE_IP, HUE_USERNAME): These are placeholder values. For a real integration, follow the instructions in the README.md under "Smart Home Integration (Simulated Philips Hue)" to find your bridge IP and generate a username.
 
-Philips Hue Integration (HUE_BRIDGE_IP, HUE_USERNAME): These are placeholder values. For a real integration, follow the instructions in the README.md under "Smart Home Integration (Simulated Philips Hue)" to find your bridge IP and generate a username.
+# 🚀 Usage
 
-🚀 Usage
-
-Run the script:
-
+### Run the script:
+```
 python voice_launcher_version_11.0.py
+```
+#### (Replace voice_launcher_version_11.0.py with your script's actual filename if different).
 
-(Replace voice_launcher_version_11.0.py with your script's actual filename if different).
+### Speak your commands:
 
-Speak your commands:
+#### Jarvis will greet you and then start listening. When it says "Listening...", speak your command clearly.
 
-Jarvis will greet you and then start listening. When it says "Listening...", speak your command clearly.
+### Example Commands:
 
-Example Commands:
+#### "Hello Jarvis"
 
-"Hello Jarvis"
+#### "How are you"
 
-"How are you"
+#### "Help" / "What can you do" / "List commands"
 
-"Help" / "What can you do" / "List commands"
+#### "Open Google"
 
-"Open Google"
+#### "Open Notepad"
 
-"Open Notepad"
+#### "Close Chrome"
 
-"Close Chrome"
+#### "Close active window"
 
-"Close active window"
+#### "Open settings"
 
-"Open settings"
+#### "Shutdown computer" (Requires confirmation)
 
-"Shutdown computer" (Requires confirmation)
+#### "Restart computer" (Requires confirmation)
 
-"Restart computer" (Requires confirmation)
+#### "Put computer to sleep" (Requires confirmation)
 
-"Put computer to sleep" (Requires confirmation)
+#### "What time is it"
 
-"What time is it"
+#### "What is today's date"
 
-"What is today's date"
+#### "What is the weather in Australia"
 
-"What is the weather in Australia"
+#### "What is my CPU usage"
 
-"What is my CPU usage"
+#### "How much RAM is used"
 
-"How much RAM is used"
+#### "Check disk space"
 
-"Check disk space"
+#### "Search Google for Python programming"
 
-"Search Google for Python programming"
+#### "Search YouTube for latest music"
 
-"Search YouTube for latest music"
+#### "Ask Jarvis what is artificial intelligence"
 
-"Ask Jarvis what is artificial intelligence"
+#### "Remember this: Buy milk and eggs"
 
-"Remember this: Buy milk and eggs"
+#### "What do you remember"
 
-"What do you remember"
+#### "Show notes in category task"
 
-"Show notes in category task"
+#### "Search my notes for important"
 
-"Search my notes for important"
+#### "Edit note ID 3"
 
-"Edit note ID 3"
+#### "Forget note ID 5" (or "Forget note about milk")
 
-"Forget note ID 5" (or "Forget note about milk")
+#### "Clear all notes"
 
-"Clear all notes"
+#### "Set volume to 50" (or "Set volume to 50 percent")
 
-"Set volume to 50" (or "Set volume to 50 percent")
+#### "Increase volume by 10"
 
-"Increase volume by 10"
+#### "Decrease volume by 20"
 
-"Decrease volume by 20"
+#### "Mute volume"
 
-"Mute volume"
+#### "Unmute volume"
 
-"Unmute volume"
+#### "Play music" (for Spotify)
 
-"Play music" (for Spotify)
+#### "Pause music" (for Spotify)
 
-"Pause music" (for Spotify)
+#### "Next song" (for Spotify)
 
-"Next song" (for Spotify)
+#### "Previous song" (for Spotify)
 
-"Previous song" (for Spotify)
+#### "Play local music" (Plays the first music file found in LOCAL_MUSIC_DIRECTORY)
 
-"Play local music" (Plays the first music file found in LOCAL_MUSIC_DIRECTORY)
+#### "Play song Billie Jean" (Attempts to find and play "Billie Jean" in LOCAL_MUSIC_DIRECTORY)
 
-"Play song Billie Jean" (Attempts to find and play "Billie Jean" in LOCAL_MUSIC_DIRECTORY)
+#### "Stop music" (Conceptual stop for local playback, as playsound has limitations)
 
-"Stop music" (Conceptual stop for local playback, as playsound has limitations)
+#### "Open music player" (Attempts to open default music player)
 
-"Open music player" (Attempts to open default music player)
+#### "Add reminder for meeting tomorrow at 3 PM" (or "Add event for dinner next Friday at 7 PM")
 
-"Add reminder for meeting tomorrow at 3 PM" (or "Add event for dinner next Friday at 7 PM")
+#### "Set a timer for 5 minutes" (or "Set a timer for 1 hour 30 minutes")
 
-"Set a timer for 5 minutes" (or "Set a timer for 1 hour 30 minutes")
+#### "Set an alarm for 7 AM" (or "Set an alarm for 8:30 PM")
 
-"Set an alarm for 7 AM" (or "Set an alarm for 8:30 PM")
+#### "Show reminders" (or "What are my appointments")
 
-"Show reminders" (or "What are my appointments")
+#### "Show reminders for tomorrow" (or "Show reminders for next Tuesday")
 
-"Show reminders for tomorrow" (or "Show reminders for next Tuesday")
+#### "Show timers"
 
-"Show timers"
+#### "Show alarms"
 
-"Show alarms"
+#### "Mark reminder complete ID 1"
 
-"Mark reminder complete ID 1"
+#### "Delete reminder ID 1"
 
-"Delete reminder ID 1"
+#### "Cancel timer ID 2"
 
-"Cancel timer ID 2"
+#### "Cancel alarm ID 3"
 
-"Cancel alarm ID 3"
-
-"Clear all reminders"
+#### "Clear all reminders"
 
 "Start listening" (Activates simulated hotword detection)
 
@@ -364,7 +359,7 @@ Example Commands:
 
 "Exit" / "Goodbye" / "Quit"
 
-⚠️ Troubleshooting
+# ⚠️ Troubleshooting
 
 "Microphone Error" / "Could not understand audio":
 
@@ -436,7 +431,7 @@ Smart Home (Philips Hue) commands not working (beyond simulation):
 
 This is expected in this environment. To make it real, you need a physical Philips Hue Bridge, configure its IP and username in GLOBAL_CONFIG, and replace the _hue_send_command simulation with actual requests calls to your bridge. Refer to the "Smart Home Integration (Simulated Philips Hue)" section in Features and the "Future Enhancements" section.
 
-💡 Future Enhancements (Roadmap for Further Development)
+# 💡 Future Enhancements (Roadmap for Further Development)
 
 Continuous Listening / Hotword Detection (Full Implementation):
 
